@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salón de Uñas exclusivemp3nails</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>Salón Exclusive.Mp3 Nails</h1>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <h3>Realizamos</h3>
+            <p>_Esmaltado semipermanente.</p>
+            <p>_Capping en poly gel.</p> 
+            <p>_Manicuría rusa sin torno.</p>
+            <p>_Press on por encargue.</p>
+    </section>
+
+    <section id="precios">
+        <h2>Precios</h2>
+        <p>_Esmaltado semipermanente $2500.</p>
+        <p>_Capping poly gel $4.000.</p>
+        <p>_Retiro de esmaltado $500.</p>
+        <p>_Extra diseño por uñaa $200.</p>
+        <p>_Servis capping poly gel $3500.</p>
+        <p>Todos los servicios mencionados incluyen en el precio, 2 diseños por servicio, es decir 1 diseño por mano.</p>
+    </section>
+
+    <section id="redes">
+        <h2>Redes Sociales</h2>
+        <p>Puedes seguirme o contactarte conmigo por alguna duda.</p>
+        <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=54+2634563887" target="_blank">WhatsApp<i class="fab fa-whatsapp"></i> </a>
+                </a></li>
+            <li><a href="https://www.instagram.com/exclusivemp3nails?igsh=MW10b2hjajY5OTN3Yg==">Instagram<i class="fab fa-instagram"></i></a></li>
+            <!-- Agrega más enlaces a tus redes sociales según sea necesario -->
+        </ul>
+    </section>
+    <section id="galeria">
+        <h2>Álbum de Fotos</h2>
+                <div class="slider-container">
+                <div class="slider">
+                <img src="imagen1.jpeg" alt="Imagen 1">
+                <img src="imagen2.jpeg" alt="Imagen 2">
+                <img src="imagen3.jpeg" alt="Imagen 3">
+                <img src="imagen4.jpeg" alt="Imagen 4">
+                <img src="imagen5.jpeg" alt="Imagen 5">
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
+        
+    </section>
+
+    
+        <section id="ubicacion">
+            <h2>Ubicación</h2>
+            <iframe src="https://maps.app.goo.gl/9d8LA65oVqYKo2GS6" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+        
+        <!-- Agrega el mapa o la descripción de la ubicación -->
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Puedes utilizar el siguiente formulario para agendar un turno:</p>
+        <form action="enviar.php" method="post">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="correo" placeholder="Correo Electrónico" required>
+            <input type="tel" name="telefono" placeholder="Teléfono">
+            <textarea name="mensaje" placeholder="Mensaje"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    
+
+    <footer>
+        <p>Derechos de autor © 2024 Salón de Uñas "exclusivemp3nails". Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+<<Enviar.php
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["nombre"];
+    $correo = $_POST["correo"];
+    $telefono = $_POST["telefono"];
+    $mensaje = $_POST["mensaje"];
+
+    // Correo al que se enviará el formulario
+    $destino = "machuca_mili@yahoo.com";
+
+    // Asunto del correo
+    $asunto = "Mensaje del formulario de contacto";
+
+    // Cuerpo del correo
+    $cuerpo = "Nombre: $nombre\n";
+    $cuerpo .= "Correo: $correo\n";
+    $cuerpo .= "Teléfono: $telefono\n";
+    $cuerpo .= "Mensaje:\n$mensaje";
+
+    // Encabezados del correo
+    $encabezados = "From: $correo\r\n";
+    $encabezados .= "Reply-To: $correo\r\n";
+
+    // Envía el correo
+    mail($destino, $asunto, $cuerpo, $encabezados);
+
+    // Redirecciona a una página de confirmación
+    header("Location: confirmacion.html");
+} else {
+    // Si se intenta acceder al archivo directamente, redirecciona al formulario
+    header("Location: index.html");
+}
+?> >>
+
+<form action="enviar.php" method="post">
+    <!-- Contenido del formulario -->
+</form>
+
+
+
